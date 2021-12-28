@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Google One Tap Authentication Sample</title>
+
+
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
+
+    <!-- CSS Reset -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+
+    <!-- Milligram CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.css">
+    
+    <link rel="stylesheet" href="/assets/css/styles.css">
+
+    <meta name="description" content="Sample page for Google One Tap Auth experience">
+    <meta property="og:title" content="Google One Tap Authentication Samplee">
+    <meta property="og:description" content="Sample page for Google One Tap Auth experience">
+    <meta property="og:image" content="https://googleonetap.developer.li/assets/img/logo.png">
+    <meta property="og:image:alt" content="Google One Tap Auth logo">
+    <meta property="og:locale" content="en_GB">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="og:url" content="https://googleonetap.developer.li">
+    <link rel="canonical" href="https://googleonetap.developer.li">
+
+    <link rel="icon" href="/favicon.ico">
+    <link rel="icon" href="/assets/icons/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/assets/icons/apple-icon.png">
+    <link rel="manifest" href="/manifest.webmanifest">
+    <meta name="theme-color" content="#FFFFFF">
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <script src="/assets/js/utils.js"></script>
+    <script src="/assets/js/main.js"></script>
+</head>
+
+<body>
+  <div class="centered padding-top">
+    <div id="no-auth" class="container">
+        <h1 id="welcome">Hello there!</h1>
+        <h3>This is a basic example on how to enable Google One Tap Authentication in a web page</h3>
+        <p>To proceed with testing the authentication flow, <b>follow the prompt shown in the top right corner of the page.</b></p>
+        <p>The Google One Tap flow is configured to automatically show the prompt in the right top corner, auto-select the current Google Account if you are already logged in with Google and proceed with the authentication flow automatically if you have done it before and your Google account allows it.</p>
+        <div id="alternative-login">
+          <p><b>If no prompt appears just click the button bellow to start the authentication flow:</b></p>
+          <div id="buttonDiv"></div>
+        </div>
+        <div id="authenticated" style="display:none">
+          <h3>Looks like you have already authenticated yourself!</h3>
+          <p><b>Here is the info I recovered about your profile in your Google account:</b></p>
+          <table id="token-table">
+            <thead>
+              <tr>
+                <th>Key</th>
+                <th>Value</th>
+              </tr>
+            </thead>
+            <tbody>
+            </tbody>
+          </table>
+          <p>Your raw token is: <blockquote><em id="raw-token"></em></blockquote></p>
+          <p>You can try to decode it by yourself in a webpage like <b><a href="https://jwt.io/">jwt.io</a></b> or <b><a href="https://jwt.ms/">jwt.ms</a></b>.</p>
+        </div>
+
+        <h2 class="padding-top">Important notes</h2>
+        <ul>
+          <li><b>The authentication is done in a secure way</b> using <b>HTTPS</b> and <b>the data requested to Google by your consent does not leave the browser or saved anywhere.</b></li>
+          <li>You can <b><a href="https://github.com/piraces/GoogleOneTapSample">inspect the source code</a></b> or <b><a href="mailto:raul@piraces.dev">reach me for more information</a></b>.</li>
+          <li><b>This web page is for educational and testing purposes only.</b></li>
+        </ul>
+        <h2 class="padding-top">What info are you requesting?</h2>
+        <p>The following info is being requested:</p>
+        <table>
+          <thead>
+            <tr>
+              <th>API</th>
+              <th>Scope</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>-</td>
+              <td>.../auth/userinfo.email</td>
+              <td>See your primary Google Account email address</td>
+            </tr>
+            <tr>
+              <td>-</td>
+              <td>.../auth/userinfo.profile</td>
+              <td>See your personal info, including any personal info you've made publicly available</td>
+            </tr>
+            <tr>
+              <td>-</td>
+              <td>openid</td>
+              <td>Associate you with your personal info on Google</td>
+            </tr>
+          </tbody>
+        </table>
+    </div>
+  </div>
+  <hr>
+  <footer class="footer">
+    <section class="container">
+      <p>
+        ⚡ Developed by
+        <a
+          target="_blank"
+          href="http://twitter.com/piraces_"
+          title="Raúl Piracés"
+          >Raúl Piracés</a
+        >. Licensed under the
+        <a
+          target="_blank"
+          href="https://github.com/piraces/GoogleOneTapSample/blob/main/LICENSE"
+          title="MIT License"
+          >MIT License</a
+        > ⚡
+      </p>
+    </section>
+  </footer>
+</body>
+</html>
